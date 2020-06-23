@@ -33,8 +33,7 @@ d3.json("citationsNetwork.json", function (err, graph) {
   if (err) throw err;
 
   simulation.nodes(graph.nodes);
-  simulation.force("link")
-    .links(graph.links);
+  simulation.force("link", d3.forceLink(graph.links));
   simulation.on("tick", update);
 
   canvas
